@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Scheduler, DayView, Appointments } from '@devexpress/dx-react-scheduler-material-ui';
+import { ViewState } from '@devexpress/dx-react-scheduler';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Scheduler
+    data={[
+      { startDate: '2018-10-31 10:00', endDate: '2018-10-31 11:00', title: 'Meeting', location: "NEW YORK"},
+      { startDate: '2018-10-31 10:00', endDate: '2018-10-31 11:30', title: 'Stand up'},
+      { startDate: '2018-10-31 18:00', endDate: '2018-10-31 19:30', title: 'Go to a gym' },
+    ]}
+  >
+    <ViewState
+        currentDate={"2018-10-31"}
+      />
+    <DayView startDayHour= {10} endDayHour={20}/>
+    <Appointments />
+  </Scheduler>
     </div>
   );
 }
